@@ -1,0 +1,42 @@
+.new-expense-controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	text-align: left;
+}
+
+.new-expense-control label {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+.new-expense-control input {
+	font: inherit;
+	color: #00ffff;
+	padding: 0.5rem;
+	border-radius: 6px;
+	border: 1px solid #7e7e7e;
+	background: top;
+	width: 20rem;
+	max-width: 100%;
+}
+
+.new-expense-control input::-webkit-outer-spin-button,
+.new-expense-control input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.new-expense-control input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: invert(50%);
+}
+
+.new-expense-control input:hover {
+	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
+}
+
+.new-expense-actions {
+	text-align: right;
+}
