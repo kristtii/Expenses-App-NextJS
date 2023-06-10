@@ -49,29 +49,37 @@ export default function Navbar() {
 							</div>
 							<div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
 								<div className="flex flex-shrink-0 items-center">
-									<Image
-										className="block h-10 w-auto lg:hidden"
-										src={logo}
-										alt="Logo"
-									/>
-									<Image
-										className="hidden h-10 w-auto lg:block"
-										src={logo}
-										alt="Logo"
-									/>
+									<Link href="/">
+										<Image
+											className="block h-10 w-auto lg:hidden"
+											src={logo}
+											alt="Logo"
+										/>
+									</Link>
+									<Link href="/">
+										<Image
+											className="hidden h-10 w-auto lg:block"
+											src={logo}
+											alt="Logo"
+										/>
+									</Link>
 								</div>
 							</div>
 							<div className="flex-1 flex-shrink-0">
-								<Image
-									className="block h-8 w-auto lg:hidden"
-									src={Namelogo}
-									alt="Logo"
-								/>
-								<Image
-									className="hidden h-8 w-auto lg:block"
-									src={Namelogo}
-									alt="Logo"
-								/>
+								<Link href="/">
+									<Image
+										className="block h-8 w-auto lg:hidden"
+										src={Namelogo}
+										alt="Logo"
+									/>
+								</Link>
+								<Link href="/">
+									<Image
+										className="hidden h-8 w-auto lg:block"
+										src={Namelogo}
+										alt="Logo"
+									/>
+								</Link>
 							</div>
 							<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 								{userData?.fname ? (

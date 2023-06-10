@@ -19,8 +19,9 @@ function ExpenseItem(props) {
 
 			if (response.ok) {
 				console.log("Expense deleted successfully.");
+				window.location.reload(); // Auto-refresh the page after successful deletion
 			} else {
-				console.log("Failed to delete the expense.");
+				notify("error", "Failed to delete the expense");
 			}
 		} catch (error) {
 			console.log("An error occurred while deleting the expense.");
