@@ -7,7 +7,9 @@ import withAuth from "../../withAuth";
 import UserContext from "../../context/UserContext";
 
 function Expenses(props) {
-	const [filteredYear, setFilteredYear] = useState("2023");
+	const [filteredYear, setFilteredYear] = useState(
+		new Date().getFullYear().toString()
+	);
 	const { userData } = useContext(UserContext);
 	const [expenses, setExpenses] = useState([]);
 	const fetchExpenses = async () => {

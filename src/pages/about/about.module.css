@@ -1,0 +1,12 @@
+.about {
+	background-color: rgb(31, 31, 31);
+	padding: 3rem;
+	margin: 3rem auto;
+	width: 50rem;
+	max-width: 80%;
+	border-radius: 12px;
+	text-align: left;
+	text-indent: 5%;
+	text-justify: distribute-all-lines;
+	box-shadow: 0 1px 8px rgba(255, 255, 255, 0.094);
+}

@@ -1,0 +1,117 @@
+.contact {
+	background-color: rgb(31, 31, 31);
+	padding: 3rem;
+	margin: 3rem auto;
+	width: 41.5rem;
+	max-width: 100%;
+	border-radius: 12px;
+	text-align: left;
+	display: grid;
+	align-items: center;
+	box-shadow: 0 1px 8px rgba(255, 255, 255, 0.094);
+}
+
+.contact-fields {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+.contact-fields label {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+.contact-fields input {
+	font: inherit;
+	color: #00ffff;
+	padding: 0.5rem;
+	border-radius: 6px;
+	border: 1px solid #7e7e7e;
+	background: top;
+	width: 35rem;
+	max-width: 100%;
+}
+
+.contact-fields input::-webkit-outer-spin-button,
+.contact-fields input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.contact-fields input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: invert(50%);
+}
+
+.contact-fields input:hover {
+	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
+}
+
+.contact-fields textarea {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+.contact-fields textarea {
+	font: inherit;
+	color: #00ffff;
+	padding: 0.5rem;
+	border-radius: 6px;
+	border: 1px solid #7e7e7e;
+	background: top;
+	width: 35rem;
+	max-width: 100%;
+}
+
+.contact-fields textarea::-webkit-outer-spin-button,
+.contact-fields textarea::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.contact-fields textarea::-webkit-calendar-picker-indicator {
+	filter: invert(50%);
+}
+
+.contact-fields textarea:hover {
+	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
+}
+
+.contactb button {
+	font: inherit;
+	font-weight: bold;
+	cursor: pointer;
+	padding: 1rem 2rem;
+	border: 1px solid #00ffff;
+	background-color: #00ffff;
+	color: black;
+	border-radius: 6px;
+	margin-right: 1rem;
+	width: 35rem;
+	height: 2.5rem;
+	max-width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contactb button:hover,
+.contactb button:active {
+	border-color: #ffffff;
+	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
+}
+
+.contactb button.alternative {
+	color: #00ffff;
+	border-color: transparent;
+	background-color: transparent;
+}
+
+.contactb button.alternative:hover,
+.contactb button.alternative:active {
+	background-color: #ddb3f8;
+}

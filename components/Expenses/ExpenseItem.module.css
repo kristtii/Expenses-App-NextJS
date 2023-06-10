@@ -53,6 +53,40 @@
 	width: auto;
 }
 
+.delete-button {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #00ffff;
+	color: #000;
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	padding: 0;
+	position: relative;
+}
+
+.delete-button::before,
+.delete-button::after {
+	content: "";
+	position: absolute;
+	width: 2px;
+	height: 14px;
+	background-color: #000;
+}
+
+.delete-button::before {
+	transform: rotate(45deg);
+}
+
+.delete-button::after {
+	transform: rotate(-45deg);
+}
+
 @media (min-width: 580px) {
 	.expense-item-description {
 		flex-direction: row;
