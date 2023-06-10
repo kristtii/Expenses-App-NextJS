@@ -1,0 +1,87 @@
+.signup-fields {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	text-align: left;
+}
+
+.signup-fields label {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+.signup-fields input {
+	font: inherit;
+	color: #00ffff;
+	padding: 0.5rem;
+	border-radius: 6px;
+	border: 1px solid #7e7e7e;
+	background: top;
+	width: 35rem;
+	max-width: 100%;
+}
+
+.signup-fields input::-webkit-outer-spin-button,
+.signup-fields input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.signup-fields input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: invert(50%);
+}
+
+.signup-fields input:hover {
+	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
+}
+
+.signup button {
+	font: inherit;
+	font-weight: bold;
+	cursor: pointer;
+	padding: 1rem 2rem;
+	border: 1px solid #00ffff;
+	background-color: #00ffff;
+	color: black;
+	border-radius: 6px;
+	margin-right: 1rem;
+	width: 35rem;
+	height: 2.5rem;
+	max-width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.signup button:hover,
+.signup button:active {
+	border-color: #ffffff;
+	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
+}
+
+.signup button.alternative {
+	color: #00ffff;
+	border-color: transparent;
+	background-color: transparent;
+}
+
+.signup button.alternative:hover,
+.signup button.alternative:active {
+	background-color: #ddb3f8;
+}
+
+/* file upload button */
+.input[type="file"]::file-selector-button {
+	border-radius: 4px;
+	padding: 0 16px;
+	cursor: pointer;
+	background-color: transparent;
+	border: 1px solid #7e7e7e;
+	box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+	margin-right: 16px;
+	transition: background-color 200ms;
+	color: #00ffff;
+}

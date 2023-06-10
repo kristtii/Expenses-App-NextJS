@@ -22,8 +22,3 @@ function App() {
 }
 
 export default App;
-
-
-// export function getServerSideProps() {
-
-// }

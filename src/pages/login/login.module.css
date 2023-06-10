@@ -1,0 +1,74 @@
+.login-fields {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	text-align: left;
+}
+
+.login-fields label {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+.login-fields input {
+	font: inherit;
+	color: #00ffff;
+	padding: 0.5rem;
+	border-radius: 6px;
+	border: 1px solid #7e7e7e;
+	background: top;
+	width: 35rem;
+	max-width: 100%;
+}
+
+.login-fields input::-webkit-outer-spin-button,
+.login-fields input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.login-fields input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: invert(50%);
+}
+
+.login-fields input:hover {
+	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
+}
+
+.login button {
+	font: inherit;
+	font-weight: bold;
+	cursor: pointer;
+	padding: 1rem 2rem;
+	border: 1px solid #00ffff;
+	background-color: #00ffff;
+	color: black;
+	border-radius: 6px;
+	margin-right: 1rem;
+	width: 35rem;
+	height: 2.5rem;
+	max-width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.login button:hover,
+.login button:active {
+	border-color: #ffffff;
+	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
+}
+
+.login button.alternative {
+	color: #00ffff;
+	border-color: transparent;
+	background-color: transparent;
+}
+
+.login button.alternative:hover,
+.login button.alternative:active {
+	background-color: #ddb3f8;
+}

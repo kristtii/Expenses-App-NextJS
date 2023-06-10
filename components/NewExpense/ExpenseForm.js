@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import style from "./ExpenseForm.module.css";
+import UserContext from "../../context/UserContext";
+import toast from "../../components/Toast";
 
 const ExpenseForm = (props) => {
+  const { userData } = useContext(UserContext);
     const [enteredTitle, setEnteredTitle] = useState("");
     const [enteredAmount, setEnteredAmount] = useState("");
     const [enteredDate, setEnteredDate] = useState(
         new Date().toISOString().slice(0, 10)
     );
 
-    // Use state per te marr vlerat nga form
+    // Use state to get values from form
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
     };
@@ -19,43 +22,13 @@ const ExpenseForm = (props) => {
         setEnteredDate(event.target.value);
     };
 
-    // using only One State
-
-    // const [userInput, setUserInput] = useState({
-    //     enteredTitle: "",
-    //     enteredAmount: "",
-    //     enteredDate: "",
-    // });
-
-    // const titleChangeHandler = (event) => {
-    //     // setUserInput({
-    //     //     ...userInput,
-    //     //     enteredTitle: event.target.value,
-    //     // });
-    //     setUserInput((prevState) => {
-    //         return { ...prevState, enteredTitle: event.target.value };
-    //     });
-    // };
-    // const amountChangeHandler = (event) => {
-    //     // setUserInput({
-    //     //     ...userInput,
-    //     //     enteredAmount: event.target.value,
-    //     // });
-    //     setUserInput((prevState) => {
-    //         return { ...prevState, enteredAmount: event.target.value };
-    //     });
-    // };
-    // const dateChangeHandler = (event) => {
-    //     // setUserInput({
-    //     //     ...userInput,
-    //     //     enteredDate: event.target.value,
-    //     // });
-    //     setUserInput((prevState) => {
-    //         return { ...prevState, enteredDate: event.target.value };
-    //     });
-    // };
-
-    const submitHandler = (event) => {
+    const notify = React.useCallback((type, message) => {
+        toast({ type, message });
+      }, []);
+      const dismiss = React.useCallback(() => {
+        toast.dismiss();
+      }, [])
+    const submitHandler =  async (event) => {
         event.preventDefault();
 
         const expenseData = {
@@ -65,6 +38,33 @@ const ExpenseForm = (props) => {
             date: new Date(enteredDate),
         };
 
+        try {
+            const res = await fetch('http://localhost:5000/expense/createExpense', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title: enteredTitle,
+            amount: enteredAmount,
+            date: enteredDate,
+            userID: userData._id
+                })
+            });
+           // const data1 = await res.json();
+            
+            if (res.status === 200) {
+                notify("success", "Expense added")
+           
+            }else {
+                const error = new Error(res.error);
+                throw error
+            }
+            
+        } catch (error) {
+            
+            notify("error", "Expense Not Added");
+        }
         props.onSaveExpenseData(expenseData);
         setEnteredTitle(""); // Per te ber clear form automatikisht pasi kemi ber submit
         setEnteredAmount(""); // duhet shtuar dhe "value={enteredTitle}"

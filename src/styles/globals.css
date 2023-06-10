@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 * {
@@ -17,3 +19,42 @@ body {
 #header{
   text-align: center;
 }
+
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  width: 40px; /* Adjust the size of the logo as needed */
+  margin-right: 10px;
+}
+
+.navbar-logo-name {
+  color:black;
+  font-weight: bold;
+}
+.navbar-profile{
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
+.navbar-profile button{
+  background-color: #000000;
+  color: #f2f2f2;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
