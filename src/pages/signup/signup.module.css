@@ -1,3 +1,32 @@
+.password-input-container {
+	position: relative;
+}
+
+.password-toggle {
+	position: absolute;
+	right: 0.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: none;
+}
+
+.eye-icon {
+	color: #7e7e7e;
+	transition: color 0.3s;
+}
+
+.eye-icon:hover {
+	color: #00ffff;
+}
+
+.eye-icon:focus .eye-icon {
+	color: #00ffff;
+}
+
 .signup-fields {
 	display: flex;
 	flex-wrap: wrap;

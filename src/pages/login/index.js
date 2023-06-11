@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import UserContext from "../../../context/UserContext";
 import toast from "../../../components/Toast";
 import style from "../login/login.module.css";
@@ -13,6 +15,7 @@ export default function Login() {
 		email: "",
 		password: "",
 	});
+	const [showPassword, setShowPassword] = useState(false);
 
 	const handleInput = (event) => {
 		const { name, value } = event.target;
@@ -23,12 +26,19 @@ export default function Login() {
 			};
 		});
 	};
+
+	const togglePasswordVisibility = () => {
+		setShowPassword((prevShowPassword) => !prevShowPassword);
+	};
+
 	const notify = React.useCallback((type, message) => {
 		toast({ type, message });
 	}, []);
+
 	const dismiss = React.useCallback(() => {
 		toast.dismiss();
 	}, []);
+
 	const handleClick = async (event) => {
 		event.preventDefault();
 		const { name, email, password } = input;
@@ -43,10 +53,9 @@ export default function Login() {
 			}),
 		});
 		const data = await res.json();
-		// console.log(data.data)
+
 		if (res.status === 400 || !data) {
 			notify("error", "Invalid Email or Password");
-			// window.alert("Invalid");
 		} else {
 			localStorage.setItem("token", data.data.token);
 			const userObj = JSON.stringify(data.data.emailExist);
@@ -55,6 +64,7 @@ export default function Login() {
 			router.push("/");
 		}
 	};
+
 	return (
 		<>
 			<div className="flex min-h-full flex-1 flex-col justify-center px-6 py-20 lg:px-8">
@@ -87,24 +97,40 @@ export default function Login() {
 						</div>
 
 						<div>
-							<div className="flex items-center justify-between">
-								<label
-									htmlFor="password"
-									className="block text-sm font-medium leading-6 "
-								>
-									Password
-								</label>
-							</div>
-							<div className={style["login-fields"]}>
-								<input
-									id="password"
-									value={input.password}
-									name="password"
-									onChange={handleInput}
-									type="password"
-									autoComplete="current-password"
-									required
-								/>
+							<label
+								htmlFor="password"
+								className="block text-sm font-medium leading-6 "
+							>
+								Password
+							</label>
+							<div className={style["password-input-container"]}>
+								<div className={style["login-fields"]}>
+									<input
+										id="password"
+										value={input.password}
+										name="password"
+										onChange={handleInput}
+										type={
+											showPassword ? "text" : "password"
+										}
+										autoComplete="current-password"
+										required
+									/>
+									<button
+										type="button"
+										className={style["password-toggle"]}
+										onClick={togglePasswordVisibility}
+									>
+										<FontAwesomeIcon
+											icon={
+												showPassword
+													? faEyeSlash
+													: faEye
+											}
+											className={style["eye-icon"]}
+										/>
+									</button>
+								</div>
 							</div>
 						</div>
 

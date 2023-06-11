@@ -1,0 +1,97 @@
+.edit-profile {
+	background-color: rgb(31, 31, 31);
+	padding: 1rem;
+	margin: 2rem auto;
+	width: 50rem;
+	max-width: 95%;
+	border-radius: 12px;
+	text-align: center;
+	box-shadow: 0 1px 8px rgba(255, 255, 255, 0.094);
+}
+
+.edit-fields {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 1rem;
+	text-align: left;
+	width: 50rem;
+}
+
+.edit-fields label {
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+.edit-fields input {
+	font: inherit;
+	color: #00ffff;
+	padding: 0.5rem;
+	border-radius: 6px;
+	border: 1px solid #7e7e7e;
+	background: transparent;
+	width: 40rem;
+	max-width: 40rem;
+}
+
+.edit-fields input::-webkit-outer-spin-button,
+.edit-fields input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.edit-fields input[type="date"]::-webkit-calendar-picker-indicator {
+	filter: invert(50%);
+}
+
+.edit-fields input:hover {
+	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
+}
+
+/* file upload button */
+.input[type="file"]::file-selector-button {
+	border-radius: 4px;
+	padding: 0 16px;
+	cursor: pointer;
+	background-color: transparent;
+	border: 1px solid #7e7e7e;
+	box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+	margin-right: 16px;
+	transition: background-color 200ms;
+	color: #00ffff;
+}
+
+/* Password toggle */
+.edit-fields .password-toggle {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	position: relative;
+	outline: none;
+	margin-left: 21rem; /* Add margin to align the eye icon more to the right */
+}
+
+.edit-fields .password-toggle .eye-icon {
+	color: #7e7e7e;
+	transition: color 0.3s;
+}
+
+.edit-fields .password-toggle:hover .eye-icon {
+	color: #00ffff;
+}
+
+.edit-fields .password-toggle:focus .eye-icon {
+	color: #00ffff;
+}
+
+.edit-fields .password-toggle .fa-eye-slash {
+	display: none;
+}
+
+.edit-fields .password-toggle.active .fa-eye-slash {
+	display: inline-block;
+}
+
+.edit-fields .password-toggle.active .fa-eye {
+	display: none;
+}

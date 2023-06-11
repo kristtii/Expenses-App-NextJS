@@ -10,7 +10,12 @@ function about() {
 				</h1>
 				<br />
 
-				<h2>Welcome to our Expenses Web Application!</h2>
+				<h2>
+					Welcome to{" "}
+					<span className={style["span"]}>
+						<b>TrackIT!</b>
+					</span>
+				</h2>
 				<br />
 
 				<p>
@@ -39,19 +44,9 @@ function about() {
 				</p>
 
 				<p>
-					{`One of the key features of our application is the ability to
-				create customized budgets. By setting spending limits for
-				various categories, you gain valuable insights into your
-				financial habits and can make informed decisions to cut back on
-				unnecessary expenses. Our application provides detailed reports
-				and visualizations, allowing you to monitor your progress and
-				take control of your finances.`}
-				</p>
-
-				<p>
 					{`Security is a top priority for us, and we understand the
 				importance of protecting your sensitive financial information.
-				That's why we have implemented robust security measures to
+				That's why we have implemented security measures to
 				ensure that your data remains safe and confidential. You can
 				trust that your financial details are securely stored and
 				encrypted, giving you peace of mind while using our platform.`}
