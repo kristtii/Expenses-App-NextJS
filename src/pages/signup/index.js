@@ -18,6 +18,8 @@ export default function Signup() {
 		image: "",
 	});
 
+	const [passwordError, setPasswordError] = useState(""); // State to store the password error message
+
 	const handleInput = (event) => {
 		const { name, value } = event.target;
 		setInput((prev) => {
@@ -32,13 +34,11 @@ export default function Signup() {
 		setInput({ ...input, image: event.target.files[0] });
 	};
 
-	const notify = React.useCallback((type, message) => {
-		toast({ type, message });
-	}, []);
-
-	const dismiss = React.useCallback(() => {
-		toast.dismiss();
-	}, []);
+	const validatePassword = (password) => {
+		const passwordRegex =
+			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+		return passwordRegex.test(password);
+	};
 
 	const handleClick = async (event) => {
 		const formData = new FormData();
@@ -50,6 +50,14 @@ export default function Signup() {
 		formData.append("image", input.image, input.image.name);
 		event.preventDefault();
 		const { name, email, password } = input;
+
+		if (!validatePassword(password)) {
+			setPasswordError(
+				"Password must contain at least 8 characters, including capital letters, lowercase letters, numbers, and symbols."
+			);
+			return;
+		}
+
 		const res = await fetch("http://localhost:5000/user/signup", {
 			method: "POST",
 			body: formData,
@@ -254,6 +262,11 @@ export default function Signup() {
 								Sign up
 							</button>
 						</div>
+						{passwordError && (
+							<p className="text-red-500 text-sm text-center">
+								{passwordError}
+							</p>
+						)}
 					</form>
 
 					<p className="mt-10 text-center text-sm text-gray-500">

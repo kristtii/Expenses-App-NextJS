@@ -21,6 +21,7 @@ function EditProfile() {
 	});
 	const [showPassword, setShowPassword] = useState(false);
 	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+	const [passwordError, setPasswordError] = useState(""); // State to store the password error message
 
 	useEffect(() => {
 		setInput(userData);
@@ -48,6 +49,12 @@ function EditProfile() {
 		}));
 	};
 
+	const validatePassword = (password) => {
+		const passwordRegex =
+			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+		return passwordRegex.test(password);
+	};
+
 	const updateUser = async (event) => {
 		event.preventDefault();
 
@@ -60,6 +67,13 @@ function EditProfile() {
 
 		if (input.image && input.image !== userData.image) {
 			formData.append("image", input.image, input.image.name);
+		}
+
+		if (!validatePassword(input.password)) {
+			setPasswordError(
+				"Password must contain at least 8 characters, including capital letters, lowercase letters, numbers, and symbols."
+			);
+			return;
 		}
 
 		const res = await fetch(
@@ -288,6 +302,11 @@ function EditProfile() {
 							Save
 						</button>
 					</div>
+					{passwordError && (
+						<p className="text-red-500 text-sm text-center">
+							{passwordError}
+						</p>
+					)}
 				</form>
 			</div>
 		</>
