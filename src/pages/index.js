@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Expenses from "../../components/Expenses/Expenses";
 import NewExpense from "../../components/NewExpense/NewExpense";
 import Footer from "../../components/Navbar/Footer";
+import ExpensesIntroduction from "../../components/Expenses/ExpensesIntroduction";
 
 const dummyExpenses = [];
 
@@ -16,9 +17,10 @@ function App() {
 
 	return (
 		<div>
+			<ExpensesIntroduction />
 			<NewExpense onAddExpsense={addExpenseHandler} />
 			<Expenses items={expenses}></Expenses>
-			<Footer></Footer>
+			<Footer />
 		</div>
 	);
 }

@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import UserContext from "../../context/UserContext";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 import toast from "../.././components/Toast";
 function EditProfile() {
 	const router = useRouter();
@@ -14,7 +15,7 @@ function EditProfile() {
 		cpassword: userData?.cpassword,
 		image: userData?.image,
 	});
-  
+
 	useEffect(() => {
 		setInput(userData);
 	}, [userData]);
@@ -187,10 +188,12 @@ function EditProfile() {
 										User Image
 									</label>
 
-									<img
+									<Image
 										className="h-8 w-8 rounded-full"
 										src={`http://localhost:5000/uploads/${userData?.image}`}
 										alt=""
+										width={500}
+										height={500}
 									/>
 									<label
 										htmlFor="image"

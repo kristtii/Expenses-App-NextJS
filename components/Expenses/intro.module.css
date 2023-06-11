@@ -1,0 +1,15 @@
+.intro {
+	background-color: rgb(31, 31, 31);
+	padding: 1rem;
+	margin: 2rem auto;
+	width: 50rem;
+	max-width: 95%;
+	border-radius: 12px;
+	text-align: center;
+	box-shadow: 0 1px 8px rgba(255, 255, 255, 0.094);
+}
+
+.span {
+	color: #00ffff;
+	font-weight: bolder;
+}

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import style from "../signup/signup.module.css";
 import toast from "../../../components/Toast";
+import Footer from "../../../components/Navbar/Footer";
 export default function Signup() {
 	const router = useRouter();
 	const [input, setInput] = useState({
@@ -202,6 +203,7 @@ export default function Signup() {
 					</p>
 				</div>
 			</div>
+			<Footer />
 		</>
 	);
 }

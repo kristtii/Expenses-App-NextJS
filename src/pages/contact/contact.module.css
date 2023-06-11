@@ -3,7 +3,7 @@
 	padding: 3rem;
 	margin: 3rem auto;
 	width: 41.5rem;
-	max-width: 100%;
+	max-width: 90%;
 	border-radius: 12px;
 	text-align: left;
 	display: grid;
@@ -24,58 +24,32 @@
 	display: block;
 }
 
-.contact-fields input {
+.contact-fields input,
+.contact-fields textarea {
 	font: inherit;
 	color: #00ffff;
 	padding: 0.5rem;
 	border-radius: 6px;
 	border: 1px solid #7e7e7e;
 	background: top;
-	width: 35rem;
-	max-width: 100%;
+	width: 100%;
+	max-width: 35rem;
 }
 
 .contact-fields input::-webkit-outer-spin-button,
-.contact-fields input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-.contact-fields input[type="date"]::-webkit-calendar-picker-indicator {
-	filter: invert(50%);
-}
-
-.contact-fields input:hover {
-	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
-}
-
-.contact-fields textarea {
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-	display: block;
-}
-
-.contact-fields textarea {
-	font: inherit;
-	color: #00ffff;
-	padding: 0.5rem;
-	border-radius: 6px;
-	border: 1px solid #7e7e7e;
-	background: top;
-	width: 35rem;
-	max-width: 100%;
-}
-
+.contact-fields input::-webkit-inner-spin-button,
 .contact-fields textarea::-webkit-outer-spin-button,
 .contact-fields textarea::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
 }
 
+.contact-fields input[type="date"]::-webkit-calendar-picker-indicator,
 .contact-fields textarea::-webkit-calendar-picker-indicator {
 	filter: invert(50%);
 }
 
+.contact-fields input:hover,
 .contact-fields textarea:hover {
 	box-shadow: 0 1px 8px rgba(0, 255, 255, 0.911);
 }
@@ -90,9 +64,9 @@
 	color: black;
 	border-radius: 6px;
 	margin-right: 1rem;
-	width: 35rem;
+	width: 100%;
+	max-width: 35rem;
 	height: 2.5rem;
-	max-width: 100%;
 
 	display: flex;
 	align-items: center;

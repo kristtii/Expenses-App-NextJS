@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import UserContext from "../../../context/UserContext";
 import toast from "../../../components/Toast";
 import style from "../login/login.module.css";
+import Footer from "../../../components/Navbar/Footer";
 
 export default function Login() {
 	const router = useRouter();
@@ -125,6 +126,7 @@ export default function Login() {
 					</p>
 				</div>
 			</div>
+			<Footer />
 		</>
 	);
 }
