@@ -1,0 +1,19 @@
+/* Footer container */
+.footer-container {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Footer links */
+.footer-links a {
+	margin-right: 10px;
+	color: #333;
+	text-decoration: none;
+}
+
+/* Footer copyright */
+.footer-copyright {
+	color: #777;
+}

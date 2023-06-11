@@ -49,28 +49,31 @@ function Expenses(props) {
 		setFilteredMonth(selectedMonth);
 	};
 
-	const filteredExpenses = expenses?.filter((expense) => {
+	const filteredExpensesChart = expenses?.filter((expense) => {
 		const expenseDate = new Date(expense.date);
-		const filter = expenseDate.getFullYear().toString() === filteredYear &&
-			expenseDate.getMonth().toString() === filteredMonth
-		return filter
+		return expenseDate.getFullYear().toString() === filteredYear;
 	});
 
+	const filteredExpenses = expenses?.filter((expense) => {
+		const expenseDate = new Date(expense.date);
+		const filter =
+			expenseDate.getFullYear().toString() === filteredYear &&
+			expenseDate.getMonth().toString() === filteredMonth;
+		return filter;
+	});
 
 	return (
 		<div>
 			<div className={style.expenses}>
-				<ExpensesChart expenses={filteredExpenses}></ExpensesChart>
-				<ExpensesFilter
-					selected={filteredYear}
-					onChangeFilter={filterChangeHandler}
-				/>
-
+				<ExpensesChart expenses={filteredExpensesChart}></ExpensesChart>
 				<MonthlyExpensesFilter
 					selected={filteredMonth}
 					onChangeFilter={filterChangeHandlerMonth}
 				/>
-
+				<ExpensesFilter
+					selected={filteredYear}
+					onChangeFilter={filterChangeHandler}
+				/>
 				<ExpensesList items={filteredExpenses} />
 			</div>
 		</div>
