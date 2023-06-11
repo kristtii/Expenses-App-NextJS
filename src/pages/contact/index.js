@@ -1,14 +1,36 @@
+import { useRef } from "react";
 import style from "../../pages/contact/contact.module.css";
-import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactForm() {
-	const [fullname, setFullname] = useState("");
-	const [email, setEmail] = useState("");
-	const [subject, setSubject] = useState("");
-	const [message, setMessage] = useState("");
+	const form = useRef();
+
+	function sendEmails(s) {
+		s.preventDefault();
+
+		emailjs
+			.sendForm(
+				"service_ncjosjh",
+				"template_g2map2x",
+				form.current,
+				"X47ZhVrPjj8UnlFYV"
+			)
+			.then(
+				(result) => {
+					console.log(result.text);
+					location.reload(false);
+				},
+				(error) => {
+					// shfaq nje msg errori ktu
+					notify();
+					console.log(error.text);
+				}
+			);
+		s.target.reset();
+	}
 
 	return (
-		<form className={style["contact"]}>
+		<form className={style["contact"]} onSubmit={sendEmails} ref={form}>
 			<h1 className="text-2xl font-bold dark:text-white">Contact Us!</h1>
 			<br />
 
@@ -20,14 +42,7 @@ export default function ContactForm() {
 				<span className="text-red-500"> *</span>
 			</label>
 			<div className={style["contact-fields"]}>
-				<input
-					type="text"
-					value={fullname}
-					onChange={(e) => {
-						setFullname(e.target.value);
-					}}
-					name="fullname"
-				/>
+				<input type="text" name="fullname" required />
 			</div>
 			<label
 				htmlFor="email"
@@ -36,14 +51,7 @@ export default function ContactForm() {
 				E-mail <span className="text-red-500">*</span>
 			</label>
 			<div className={style["contact-fields"]}>
-				<input
-					type="email"
-					name="email"
-					value={email}
-					onChange={(e) => {
-						setEmail(e.target.value);
-					}}
-				/>
+				<input type="email" name="email" required />
 			</div>
 			<label
 				htmlFor="subject"
@@ -52,14 +60,7 @@ export default function ContactForm() {
 				Subject <span className="text-red-500">*</span>
 			</label>
 			<div className={style["contact-fields"]}>
-				<input
-					type="text"
-					name="subject"
-					value={subject}
-					onChange={(e) => {
-						setSubject(e.target.value);
-					}}
-				/>
+				<input type="text" name="subject" required />
 			</div>
 			<label
 				htmlFor="message"
@@ -68,13 +69,7 @@ export default function ContactForm() {
 				Message <span className="text-red-500">*</span>
 			</label>
 			<div className={style["contact-fields"]}>
-				<textarea
-					name="message"
-					value={message}
-					onChange={(e) => {
-						setMessage(e.target.value);
-					}}
-				></textarea>
+				<textarea name="message" required></textarea>
 			</div>
 			<br />
 			<div className={style["contactb"]}>

@@ -5,11 +5,16 @@ import ExpensesFilter from "./ExpensesFilter";
 import ExpensesChart from "./ExpensesChart";
 import withAuth from "../../withAuth";
 import UserContext from "../../context/UserContext";
+import MonthlyExpensesFilter from "./MonthlyExpensesFilter";
 
 function Expenses(props) {
 	const [filteredYear, setFilteredYear] = useState(
 		new Date().getFullYear().toString()
 	);
+	const [filteredMonth, setFilteredMonth] = useState(
+		new Date().getMonth().toString()
+	);
+
 	const { userData } = useContext(UserContext);
 	const [expenses, setExpenses] = useState([]);
 	const fetchExpenses = async () => {
@@ -21,7 +26,6 @@ function Expenses(props) {
 				}
 			);
 			const data = await res.json();
-			console.log(data);
 			setExpenses(data);
 
 			if (!res.status === 200) {
@@ -32,6 +36,7 @@ function Expenses(props) {
 			//history.push('/signin');
 		}
 	};
+
 	useEffect(() => {
 		fetchExpenses();
 		// eslint-disable-next-line
@@ -40,10 +45,17 @@ function Expenses(props) {
 		setFilteredYear(selectedYear);
 	};
 
+	const filterChangeHandlerMonth = (selectedMonth) => {
+		setFilteredMonth(selectedMonth);
+	};
+
 	const filteredExpenses = expenses?.filter((expense) => {
 		const expenseDate = new Date(expense.date);
-		return expenseDate.getFullYear().toString() === filteredYear;
+		const filter = expenseDate.getFullYear().toString() === filteredYear &&
+			expenseDate.getMonth().toString() === filteredMonth
+		return filter
 	});
+
 
 	return (
 		<div>
@@ -53,6 +65,12 @@ function Expenses(props) {
 					selected={filteredYear}
 					onChangeFilter={filterChangeHandler}
 				/>
+
+				<MonthlyExpensesFilter
+					selected={filteredMonth}
+					onChangeFilter={filterChangeHandlerMonth}
+				/>
+
 				<ExpensesList items={filteredExpenses} />
 			</div>
 		</div>
