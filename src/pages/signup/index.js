@@ -70,6 +70,10 @@ export default function Signup() {
 		}
 	};
 
+	const notify = React.useCallback((type, message) => {
+		toast({ type, message });
+	}, []);
+
 	const [showPassword, setShowPassword] = useState(false);
 	const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
