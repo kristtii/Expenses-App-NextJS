@@ -169,6 +169,7 @@ export default function Signup() {
 									name="image"
 									id="image"
 									placeholder="Select a Photo"
+									required
 								/>
 							</div>
 						</div>
