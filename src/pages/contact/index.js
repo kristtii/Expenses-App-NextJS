@@ -18,13 +18,11 @@ export default function ContactForm() {
 			)
 			.then(
 				(result) => {
-					console.log(result.text);
+					notify("success", "E-mail sent");
 					location.reload(false);
 				},
 				(error) => {
-					// shfaq nje msg errori ktu
-					notify();
-					console.log(error.text);
+					notify("error", "E-mail not sent");
 				}
 			);
 		s.target.reset();

@@ -54,8 +54,6 @@ const ExpenseForm = (props) => {
 					}),
 				}
 			);
-			// const data1 = await res.json();
-
 			if (res.status === 200) {
 				notify("success", "Expense added");
 			} else {
