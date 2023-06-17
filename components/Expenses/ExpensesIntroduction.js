@@ -5,10 +5,8 @@ function ExpensesIntroduction() {
 		<div className={style["intro"]}>
 			<p>
 				Manage your finances effortlessly with{" "}
-				<span className={style["span"]}>TrackIT!</span> Take control of
-				your expenses and make informed financial decisions. Start by
-				adding your expenses below using the {`'Add New Expense'`}
-				button:
+				<span className={style["span"]}>TrackIT!</span> Control expenses
+				and make informed financial decisions.
 			</p>
 		</div>
 	);
